@@ -6,4 +6,4 @@ Bu depoda Makine Öğrenmesi için kullanılan Python kodlarının derlenmiş ha
 Kütüphane içinde örnek kod sayfaları oluştukça buraya ilgili kodlara ulaşan köprüler eklenecektir.
 
 ## Veri Ön İşleme
-- [DataFrame işlemleri](DataFrame-Operations.ipynb)
+- [DataFrame işlemleri](DataFrame-Operations/DataFrame-Operations.ipynb)
