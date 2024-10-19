@@ -10,4 +10,4 @@ Kütüphane içinde örnek kod sayfaları oluştukça buraya ilgili kodlara ula�
 - [Veri Görselleştirme](Data-Visualization/Data-Visualization.ipynb)
 - [Keşfedici Veri Analizi (EDA)](Exploratory-Data-Analysis/Exploratory-Data-Analysis.ipynb)
 - [Veri Temizleme](Cleaning-Data/Cleaning-Data.ipynb)
-- [Özellik Mühendisliği] (Yakında)
+- [Özellik Mühendisliği](Feature-Engineering/Feature-Engineering.ipynb)

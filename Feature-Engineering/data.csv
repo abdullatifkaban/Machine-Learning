@@ -1,0 +1,21 @@
+Transaction_Date,House_Size_sqm,Num_Bedrooms,House_Age_Years,Location_Score,Price_USD,Neighborhood,Is_Remodeled,Noise_Level_dB,Contact
+2023-01-01,148,1,17,4.33,"$486,594",C,Yes,32,Mr. John Smith
+2023-01-02,85,1,48,5.36,"$872,608",C,No,53,Mrs. Jane Johnson
+2023-01-03,145,1,47,6.56,"$760,775",D,No,52,Dr. Alice Williams
+2023-01-04,86,5,23,4.32,"$791,519",D,Yes,37,Mr. Bob Brown
+2023-01-05,61,3,15,5.16,"$143,925",B,No,76,Mrs. Emily Jones
+2023-01-06,92,2,10,7.12,"$582,739",A,Yes,49,Mr. David Garcia
+2023-01-07,140,4,30,8.23,"$924,176",B,No,45,Dr. Sophia Martinez
+2023-01-08,110,2,12,6.91,"$654,319",C,Yes,38,Mrs. Isabella Davis
+2023-01-09,75,1,50,3.45,"$243,895",A,No,50,Mr. James Miller
+2023-01-10,165,5,8,9.11,"$823,749",D,Yes,34,Dr. Emily Taylor
+2023-01-11,98,2,25,4.78,"$395,682",B,No,48,Mr. John Martinez
+2023-01-12,72,3,5,7.45,"$214,593",C,Yes,47,Mrs. Jane Davis
+2023-01-13,135,4,40,6.55,"$945,320",D,No,36,Mr. Bob Smith
+2023-01-14,115,2,35,5.85,"$629,876",A,Yes,44,Dr. Michael Johnson
+2023-01-15,152,3,14,8.5,"$789,435",B,No,42,Mrs. Sophia Garcia
+2023-01-16,160,5,19,9.32,"$905,743",D,Yes,41,Mr. James Brown
+2023-01-17,70,2,6,6.89,"$189,672",C,No,54,Dr. Alice Williams
+2023-01-18,125,3,45,7.77,"$614,356",A,Yes,46,Mr. John Taylor
+2023-01-19,90,1,50,4.99,"$523,187",B,No,39,Mrs. Emily Brown
+2023-01-20,130,4,27,8.88,"$715,462",D,Yes,43,Dr. David Johnson
