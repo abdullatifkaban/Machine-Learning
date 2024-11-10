@@ -1,4 +1,5 @@
 # Machine Learning
+
 Makine Öğrenmesi Kod Kütüphanesi
 
 Bu depoda Makine Öğrenmesi için kullanılan Python kodlarının derlenmiş hali yer alacaktır.
@@ -6,6 +7,7 @@ Bu depoda Makine Öğrenmesi için kullanılan Python kodlarının derlenmiş ha
 Kütüphane içinde örnek kod sayfaları oluştukça buraya ilgili kodlara ulaşan köprüler eklenecektir.
 
 ## Veri Ön İşleme
+
 - [DataFrame İşlemleri](Data-Preprocessing/01-DataFrame-Operations/DataFrame-Operations.ipynb)
 - [Veri Görselleştirme](Data-Preprocessing/02-Data-Visualization/Data-Visualization.ipynb)
 - [Keşfedici Veri Analizi (EDA)](Data-Preprocessing/03-Exploratory-Data-Analysis/Exploratory-Data-Analysis.ipynb)
@@ -15,8 +17,10 @@ Kütüphane içinde örnek kod sayfaları oluştukça buraya ilgili kodlara ula�
 ## Model Geliştirme
 
 ### Denetimli Öğrenme
+
 - [Regresyon Modeli](Model-Development/01-Regression/Regression.ipynb)
-- [Sınıflandırma Modeli] (Yakında Gelecek)
+- [Sınıflandırma Modeli](Model-Development/02-Classification/Classification.ipynb)
 
 ### Denetimsiz Öğrenme
+
 - [Kümeleme Modeli] (Yakında Gelecek)
