@@ -23,4 +23,4 @@ Kütüphane içinde örnek kod sayfaları oluştukça buraya ilgili kodlara ula�
 
 ### Denetimsiz Öğrenme
 
-- [Kümeleme Modeli] (Yakında Gelecek)
+- [Kümeleme Modeli](Model-Development/03-Clustering/Clustering.ipynb)
