@@ -20,6 +20,7 @@ Kütüphane içinde örnek kod sayfaları oluştukça buraya ilgili kodlara ula�
 
 - [Regresyon Modeli](Model-Development/01-Regression/Regression.ipynb)
 - [Sınıflandırma Modeli](Model-Development/02-Classification/Classification.ipynb)
+    * [Dengesiz Verilerle Başa Çıkma](Model-Development/02-Classification/Imbalanced-Data.ipynb)
 
 ### Denetimsiz Öğrenme
 
