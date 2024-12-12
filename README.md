@@ -25,3 +25,16 @@ Kütüphane içinde örnek kod sayfaları oluştukça buraya ilgili kodlara ula�
 ### Denetimsiz Öğrenme
 
 - [Kümeleme Modeli](Model-Development/03-Clustering/Clustering.ipynb)
+
+## Model İyileştirme
+
+### Veri Boyutunu Azaltma
+
+- [Özellik Ölçeklendirme](Model-Improvement/01-Scaling/Scaling.ipynb)
+- [Temel Bileşen Analizi](Model-Improvement/02-Principal-Component-Analysis/Principal-Component-Analysis.ipynb)
+
+### Otomatik İşlemler
+
+- [Keşfedici Veri Analizi](Yakında Gelecek...)
+- [Makine Öğrenmesi]
+- [Boş Verileri Doldurma]
