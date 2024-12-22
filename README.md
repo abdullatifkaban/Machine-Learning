@@ -35,6 +35,6 @@ Kütüphane içinde örnek kod sayfaları oluştukça buraya ilgili kodlara ula�
 
 ### Otomatik İşlemler
 
-- [Keşfedici Veri Analizi](Yakında Gelecek...)
-- [Makine Öğrenmesi]
-- [Boş Verileri Doldurma]
+- [Oto - Keşfedici Veri Analizi](Model-Improvement/03-Auto-EDA/Auto-EDA.ipynb)
+- [Oto - Makine Öğrenmesi]
+- [Oto - Boş Verileri Doldurma]
