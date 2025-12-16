@@ -36,7 +36,7 @@ df_empty
 
 ---
 
-## Dictionary ile DataFrame Oluşturma
+## Dictionary nesnesi ile DataFrame oluşturma
 
 ```python
 d = {
@@ -59,8 +59,12 @@ df
 | 2 | m3 | s3 | 2003 | 3000.0 |
 
 ---
+# DataFrame Veri Filtreleme
 
 ## Tek Bir Sütun Seçme
+
+> [!TIP]
+> Alan ismi tek kelime ise doğrudan yazılabilir, değilse df["Model"] şeklinde yazılmalıdır.
 
 ```python
 df.Model
@@ -92,6 +96,9 @@ df["Seri"]
 
 ## Birden Fazla Sütun Seçme
 
+> [!TIP]
+> Birden fazla sütun seçerken çift parantez `[[ ]]` kullanılması gerektiğini unutmayın.
+
 ```python
 df[["Yil", "Fiyat"]]
 ```
@@ -122,8 +129,37 @@ df[df["Yil"] >= 2002]
 | 2 | m3 | s3 | 2003 | 3000.0 |
 
 ---
+## Veri Filtreleme İşlemleri
+> [!TIP]
+> Fiyat alanı boş olan satırlar
+
+```python
+df[df["Fiyat"].isnull()]
+```
+**Çıktı:**
+| | Model | Seri | Yil | Fiyat |
+|---|---|---|---|---|
+
+
+## Fiyat alanı dolu olan satırlar
+
+> [!TIP]
+> Fiyat alanı dolu olan satırlar
+
+```python
+df[df["Fiyat"].notnull()]
+```
+**Çıktı:**
+| | Model | Seri | Yil | Fiyat |
+|---|---|---|---|---|
+| 0 | m1 | s1 | 2001 | 1000.0 |
+| 1 | m2 | s2 | 2002 | 2000.0 |
+| 2 | m3 | s3 | 2003 | 3000.0 |
 
 ## iloc ile Satır Seçme
+
+> [!TIP]
+> 0. satırı ver
 
 ```python
 df.iloc[0]
@@ -140,6 +176,10 @@ df.iloc[0]
 
 ---
 
+> [!TIP]
+>iloc[m:n] m. satırdan başlayarak n. satıra kadar olanları ver (n dahil değil) 
+
+
 ```python
 df.iloc[1:3]
 ```
@@ -152,8 +192,9 @@ df.iloc[1:3]
 | 2 | m3 | s3 | 2003 | 3000.0 |
 
 ---
+# DataFrame'den Alan Silme
 
-## Sütun Silme
+## Tek bir alan silme
 
 ```python
 del df["Model"]
@@ -169,7 +210,7 @@ df
 | 2 | s3 | 2003 | 3000.0 |
 
 ---
-
+## Birden fazla alan silme
 ```python
 df.drop(["Yil", "Fiyat"], axis=1, inplace=True)
 df
@@ -184,8 +225,14 @@ df
 | 2 | s3 |
 
 ---
+# Veri Okuma Yöntemleri
 
 ## CSV Dosyasından Veri Okuma
+
+
+> [!TIP]
+> Dosyadaki ilk satır başlık içermiyorsa header=None kullanılır
+
 
 ```python
 data = pd.read_csv("test_pandas.csv", header=None)
@@ -221,6 +268,11 @@ data
 
 ## Index Ayarlama
 
+
+> [!TIP]
+> Yukarıda Unnamed: 0 alanı Excel dosyasında index alanı olduğu için bu sütun index olarak kullanılabilir
+
+
 ```python
 data.set_index("Unnamed: 0", inplace=True)
 data
@@ -235,7 +287,8 @@ data
 | 2 | 3 | bird | 3.3 |
 
 ---
-**! İpucu:** <font color="red">inplace=True</font> parametresi ile yapılan değişiklik orjinal DataFrame üzerinde güncellenir 
+> [!TIP]
+> <font color="red">inplace=True</font> parametresi ile yapılan değişiklik orjinal DataFrame üzerinde güncellenir 
 
 ## HTML Üzerinden Tablo Okuma
 
@@ -259,6 +312,14 @@ df.iloc[:5]
 
 
 ## Veritabanından Veri Okuma (SQLite)
+
+> [!TIP]
+> Veri tabanına bağlan, yoksa oluştur
+
+
+> [!TIP]
+> SQL Kodu detayları için SQL komutları konusunu araştırın!
+
 
 ```python
 import sqlite3
@@ -286,20 +347,29 @@ data
 | 87    | 7  | ANA            | Chargers   |
 
 
-**Diğer veri okuma yöntemleri:**
-* pd.read_json()   : JSON dosyasından veri oku
-* pd.read_xml()    : XML dosyasından veri oku
-* pd.read_pickle() : Pickle dosyasından veri oku
-* ...
+> [!NOTE]
+> Diğer veri okuma yöntemleri:
+> - `pd.read_json()` : JSON dosyasından veri oku
+> - `pd.read_xml()`  : XML dosyasından veri oku
+> - `pd.read_pickle()` : Pickle dosyasından veri oku
+> 
+> Örnekleri çoğaltmak mümkün.
 
-Örnekleri çoğaltmak mümkün.
+
 ### Veritabanına Yazma
+
+> [!TIP]
+> Test tablosuna yaz, bu tablo yoksa oluştur, varsa üzerine ekle
+
 
 ```python
 data.to_sql("test", conn, if_exists="append", index=False)
 ```
 
 ### CSV’ye Yazma
+
+> [!TIP]
+>index=False kodu ile yazarken indeksleri yazma
 
 ```python
 data.to_csv("yeni_dosya.csv", index=False)
