@@ -115,8 +115,8 @@ Her ML projesi için standart bir akış vardır:
 
 ```
 ┌──────────────────────────────────────────────────┐
-│  Veri Toplama → Ön İşleme → Eğitim/Test Ayırma  │
-│            ↓                                       │
+│  Veri Toplama → Ön İşleme → Eğitim/Test Ayırma   │
+│            ↓                                     │
 │  Model Seçimi → Eğitim → Değerlendirme → Dağıtım │
 └──────────────────────────────────────────────────┘
 ```
@@ -165,7 +165,7 @@ Her ML projesi için standart bir akış vardır:
 ┌──────────────────────────────────────────┐
 │           Tam Veri Seti                  │
 ├─────────────────────┬────────────────────┤
-│   %80 Eğitim (Train)│  %20 Test (Test)  │
+│   %80 Eğitim (Train)│  %20 Test (Test)   │
 └─────────────────────┴────────────────────┘
          │ Model öğrenir          │ Model test edilir
          ▼                        ▼
@@ -244,18 +244,16 @@ Bu repo, klasik makine öğrenmesi (classical ML) yol haritasına odaklı bir no
 | **Yellowbrick** | 1.3+ | Model değerlendirme görselleştirmeleri |
 | **PyCaret** | 3.0+ | Auto-ML ortamı (Auto-EDA, Auto-ML) |
 
-> **Bu repo:** Tüm kütüphaneler varsayılan sürümlerle uyumlu olarak çalışmaktadır. Notebook'lar `warnings.simplefilter('ignore')` ile uyarıları bastırarak çalıştırılabilir.
-
 ---
 
 ## 8. Sonraki Adımlar ve Önerilen Öğrenme Yolculuğu
 
-### 🚀 "Daha önce hiç kodlamam, nasıl başlarım?"
+### 🚀 "Daha önce hiç kod yazmadım, nasıl başlarım?"
 
 1. **Bu notları sırasıyla oku:** Data Preprocessing → Model Development → Model Improvement
 2. **Her notebook'u canlı deneyin:** Jupyter Notebook ortamında `Shift + Enter` ile hücreleri çalıştırın
-3. **Verisetleri değiştirme:** `cars.xls`, `hr_data.csv` gibi örnek verisetleri yerine kendi verisetlerinizi deneyin
-4. **Model'leri kıyaslayın:** Farklı algoritmaların (Random Forest, Lojistik Regresyon vb.) aynı veride performansını karşılaştırın
+3. **Verisetleri değiştirme:** Verilen örnek verisetleri yerine kendi verisetlerinizi deneyin
+4. **Model'leri kıyaslayın:** Farklı algoritmaların (Random Forest, Lojistik Regresyon vb.) performansını aynı veride karşılaştırın
 
 ### 📊 "Sonra ne öğrenmeliyim?"
 
@@ -266,30 +264,9 @@ Bu repo, klasik makine öğrenmesi (classical ML) yol haritasına odaklı bir no
 | 3 | **Büyük Veri (Big Data)** | PySpark, Dask |
 | 4 | **ML Production** | Docker, MLflow, CI/CD pipeline'lar |
 
-### 💡 "Bu repo'yu nasıl kullanmalıyım?"
-
-```bash
-# 1. Repoyu klonlayın
-git clone https://github.com/.../Machine-Learning.git
-cd Machine-Learning
-
-# 2. Gerekli kütüphaneleri yükleyin
-pip install numpy pandas scikit-learn matplotlib seaborn pycaret yellowbrick
-
-# 3. İlk notebook'u başlatın
-jupyter notebook Data-Preprocessing/01-DataFrame-Operations/DataFrame-Operations.ipynb
-
-# 4. Hücreleri sırayla çalıştırın ve sonuçları gözlemleyin
-```
-
 ---
 
-## 📎 Kaynakça ve Referanslar
+## 📎 Referanslar
 
-1. **Scikit-learn Documentation** — https://scikit-learn.org/stable/
-2. **StatQuest YouTube Channel** — Basit terimlerle ML açıklamaları
-3. **fast.ai Course** — Pratik derin öğrenme
-4. **Google's ML Crash Course** — Google'ın kendi iç eğitimi
-5. **DeepLearning.AI** — Andrew Ng'ın kursları
-
-> **Not:** Bu repo içeriği eğitimsel amaçlı hazırlanmıştır. Gerçek dünyalı projelerde veri güvenliği, model açıklanabilirliği (XAI) ve etik AI konularına da dikkat çekilmelidir.
+1. **Scikit-learn Documentation** — Scikit Kütüphanesi Dokümanları - [🔗](https://scikit-learn.org/stable/)
+2. **Google's ML Crash Course** — Google'ın kendi iç eğitimi - [🔗](https://developers.google.com/machine-learning/crash-course?hl=tr)
