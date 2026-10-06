@@ -16,7 +16,7 @@
 | **Model (Model)** | Öğrenme sürecinin sonucunda elde edilen matematiksel/istatistiksel yapı | 
 | **Özellik (Feature)** | Modelin karar vermesini sağlayan veriye ait ölçülebilir nitelikler | 
 
-```
+```python
 # Basit bir örnek: Lineer Regresyon
 import numpy as np
 from sklearn.linear_model import LinearRegression
