@@ -45,11 +45,11 @@ print(f"6 birimlik ev için tahmini fiyat: {y_predict[0]:.2f}")
 │  ~ İnsan benzeri akıl yürütme   │
 └──────────────┬──────────────────┘
                │
-       ┌───────▼────────┐
+       ┌───────▼─────────┐
        │ Makine Öğrenmesi│
-       │   (ML)         │
-       │ Veriden öğrenme│
-       └───────┬────────┘
+       │   (ML)          │
+       │ Veriden öğrenme │
+       └───────┬─────────┘
                │
        ┌───────▼────────┐
        │ Derin Öğrenme  │
@@ -122,9 +122,9 @@ Her makine öğrenmesi projesi temel olarak şu adımları takip eder:
 
 | **Bölüm** | **Açıklama** | **Not Defteri** | 
 |--------|----------|--------|
-| **Data Preprocessing** | Veri temizleme, dönüştürme ve görselleştirme | 01–05 Numaralı notebook'lar | 
-| **Model Development** | Farklı algoritmaların uygulanması | 01 Regresyon, 02 Sınıflandırma, 03 Kümeleme | 
-| **Model Improvement** | Performans artırma: Ölçeklendirme, PCA, Auto-ML | 01–05 Numaralı notebook'lar | 
+| **Data Preprocessing** | Veri temizleme, dönüştürme ve görselleştirme | Data-Preprocessing \ 01–05 Numaralı notebook'lar | 
+| **Model Development** | Farklı algoritmaların uygulanması | Model-Development \ 01 Regresyon, 02 Sınıflandırma, 03 Kümeleme | 
+| **Model Improvement** | Performans artırma: Ölçeklendirme, PCA, Auto-ML | Model-Improvement \ 01–05 Numaralı notebook'lar | 
 
 ## 5. Bu Deponun Kapsamı ve Öğrenme Yol Haritası
 
