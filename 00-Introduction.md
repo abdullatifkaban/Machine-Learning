@@ -2,21 +2,22 @@
 
 ## 1. Makine Öğrenmesi Nedir?
 
-**Makine öğrenmesi (Machine Learning)**, bilgisayarların verilerden öğrenerek, açık programlama ile tanımlanmadan görevleri yerine getirebilen yetkinliği geliştiren bir **yapay zeka (AI) alanı**dır.
+**Makine öğrenmesi (Machine Learning - ML)**, bilgisayarların açıkça kodlanmaya ihtiyaç duymadan verilerden öğrenerek görevleri yerine getirme yeteneği kazanmasını sağlayan bir **yapay zeka (AI) alt alanı**dır.
 
-> *"Bilgisayarların verilerden kalıpları bulmasına, bu kalıpları kullanarak tahmin yapmasına ve karar almasına olanak tanıması."*
+> [!TIP]
+> *"Bilgisayarların verilerdeki kalıpları (örüntüleri) keşfetmesine, bu kalıpları kullanarak tahminler yapmasına ve kararlar almasına olanak tanır."*
 
 ### Temel Kavramlar
 
-| Kavram | Açıklama |
+| **Kavram** | **Açıklama** |  
 |--------|----------|
-| **Öğrenme (Learning)** | Verilerden bilgi/kalıp çıkarma süreci |
-| **Tahmin (Prediction)** | Bilinmeyen verilerde sonuç tahmini |
-| **Model (Model)** | Öğrenme sonucunda elde edilen matematiksel/istatistiksel yapı |
-| **Özellik (Feature)** | Modelin karar vermesi için kullanılan verinin ölçütleri |
+| **Öğrenme (Learning)** | Verilerden bilgi ve kalıp (örüntü) çıkarma süreci | 
+| **Tahmin (Prediction)** | İşlenmiş veriler yardımıyla bilinmeyen durumlar hakkında sonuç üretme | 
+| **Model (Model)** | Öğrenme sürecinin sonucunda elde edilen matematiksel/istatistiksel yapı | 
+| **Özellik (Feature)** | Modelin karar vermesini sağlayan veriye ait ölçülebilir nitelikler | 
 
-```python
-# Basit bir örnek: lineer regresyon
+```
+# Basit bir örnek: Lineer Regresyon
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
@@ -25,14 +26,14 @@ X = np.array([[1], [2], [3], [4], [5]])  # Girdiler (örnek: ev boyutları)
 y = np.array([2, 4, 5, 4, 5])            # Çıktılar (örnek: fiyatlar)
 
 model = LinearRegression()
-model.fit(X, y)  # Model öğrenme süreci
+model.fit(X, y)  # Model eğitme süreci
 
 # Yeni veriden tahmin
-y_predict = model.predict(np.array([[6]]))
+X_new = np.array([[6]])
+y_predict = model.predict(X_new)
 print(f"6 birimlik ev için tahmini fiyat: {y_predict[0]:.2f}")
-```
 
----
+```
 
 ## 2. Yapay Zeka ve Makine Öğrenmesi İlişkisi
 
@@ -45,7 +46,7 @@ print(f"6 birimlik ev için tahmini fiyat: {y_predict[0]:.2f}")
 └──────────────┬──────────────────┘
                │
        ┌───────▼────────┐
-       │ Makine Öğrenme │
+       │ Makine Öğrenmesi│
        │   (ML)         │
        │ Veriden öğrenme│
        └───────┬────────┘
@@ -55,107 +56,109 @@ print(f"6 birimlik ev için tahmini fiyat: {y_predict[0]:.2f}")
        │ (Deep Learning)│
        │ Sinir ağları   │
        └────────────────┘
+
 ```
 
 ### Tarihçe Özeti
 
-| Dönem | Gelişme | Ünvan |
-|-------|---------|-------|
-| **1950'ler** | Alanın doğuşu | *"Can machines think?"* — Turing Test |
-| **1960'lar** | İlk algoritmalar | Perceptron, ilk sinir ağı |
-| **1990'lar** | İstatistiksel yaklaşım | SVM, Decision Trees |
-| **2010'lar** | Derin öğrenme patlaması | CNN, RNN, GPT serisi |
-| **2020'ler** | Generatif AI | Stable Diffusion, Large Language Models |
+| **Dönem** | **Gelişme** | **Unvan / Tanım** | 
+|--------|----------|--------|
+| **1950'ler** | Alanın doğuşu | *"Can machines think?"* — Turing Testi | 
+| **1960'lar** | İlk algoritmalar | Perceptron, ilk yapay sinir ağı | 
+| **1990'lar** | İstatistiksel yaklaşım | SVM (Destek Vektör Makineleri), Karar Ağaçları | 
+| **2010'lar** | Derin öğrenme patlaması | CNN, RNN, GPT serisi | 
+| **2020'ler** | Üretken Yapay Zeka (Generative AI) | Stable Diffusion, Büyük Dil Modelleri (LLMs) | 
 
-> **Not:** Bu repo üzerindeki notlar çoğunlukla **classical ML** (klasik makine öğrenmesi) üzerine odaklıdır: regresyon, sınıflandırma, kümeleme gibi temel yöntemler. Derin öğrenme ve generatif AI konuları daha ileri seviyede ele alınabilir.
+> [!NOTE]
+> **Not:** Bu depodaki notlar çoğunlukla **klasik makine öğrenmesi** (classical ML) üzerine odaklanmıştır: regresyon, sınıflandırma ve kümeleme gibi temel yöntemleri içerir. Derin öğrenme ve üretken yapay zeka konuları daha ileri seviye çalışmalarda ele alınabilir.
 
----
-
-## 3. Makine Öğrenmenin Ana Türleri
+## 3. Makine Öğrenmesinin Ana Türleri
 
 ### A. Denetimli Öğrenme (Supervised Learning)
 
-Veriler hem **girdi (X)** hem de **hedef/çıktı (y)** olarak etiketlenmiştir.
+Veriler hem **girdi (X)** hem de **hedef/çıktı (y)** etiketiyle birlikte modele sunulur.
 
-| Model | Kullanım Alanı | Örnek |
-|-------|---------------|-------|
-| **Regresyon** | Sürekli değer tahmini | Ev fiyatı, fiyat trendi |
-| **Sınıflandırma** | Kategorik atama | Spam/not spam, hastalık var/yok |
+| **Model** | **Kullanım Alanı** | **Örnek** | 
+|--------|----------|--------|
+| **Regresyon** | Sürekli değer tahmini | Ev fiyatı, hisse senedi trendi | 
+| **Sınıflandırma** | Kategorik etiketleme | Spam/Spam değil, hastalık var/yok | 
 
-> **Repo'daki:** `Model-Development/02-Classification/` ve `01-Regression/` notları burayı kapsar.
 
 ### B. Denetimsiz Öğrenme (Unsupervised Learning)
 
-Sadece **girdi (X)** vardır; hedef (y) belirtilmemiştir. Veri içinde gizli yapılar bulunur.
+Veri setinde sadece **girdi (X)** bulunur; hedef etiket (y) yoktur. Model, veri içerisindeki gizli yapıları ve ilişkileri keşfeder.
 
-| Model | Kullanım Alanı | Örnek |
-|-------|---------------|-------|
-| **Kümeleme** | Gruplama/struktur | Müşteri segmentasyonu, anomal detection |
-| **Boyut İndirme** | Özellik sayısını azaltma | PCA, t-SNE |
+| **Model** | **Kullanım Alanı** | **Örnek** | 
+|--------|----------|--------|
+| **Kümeleme** | Gruplama / Yapı Keşfi | Müşteri segmentasyonu, anomali tespiti | 
+| **Boyut İndirgeme** | Özellik sayısını azaltma | PCA, t-SNE | 
 
-> **Repo'daki:** `Model-Development/03-Clustering/` ve `Model-Improvement/02-PCA/` notları burayı kapsar.
+### C. Pekiştirmeli Öğrenme (Reinforcement Learning)
 
-### C. Desteğe Öğrenme (Reinforcement Learning)
+Bir ajanın, içinde bulunduğu ortamda **ödül/ceza mekanizması** ile en uygun davranışı deneyimleyerek öğrenmesidir.
 
-**Ödül/ceza mekanizması** ile ajanın ortamda öğrenmesi.
+| **Uygulama** | **Açıklama** | 
+|--------|----------|
+| Oyun AI'ları | AlphaGo, Atari oyunları | 
+| Robotik | Hareket kontrolü, nesne manipülasyonu | 
+| İşletme | Fiyatlandırma stratejileri, kaynak tahsisi | 
 
-| Uygulama | Açıklama |
-|----------|----------|
-| Oyun AI'ları | AlphaGo, Atari oyunları |
-| Robotik | Hareket kontrolü, manipülasyon |
-| İşletme | Ödeme stratejileri, kaynak tahsisi |
-
-> ⚠️ **Repo'da bu konuya dair bir giriş yer almamakla beraber, ileri seviye notlar eklenebilir.**
-
----
 
 ## 4. Standart ML Çalışma Akışı (Workflow)
 
-Her ML projesi için standart bir akış vardır:
+Her makine öğrenmesi projesi temel olarak şu adımları takip eder:
 
 ```
 ┌──────────────────────────────────────────────────┐
-│  Veri Toplama → Ön İşleme → Eğitim/Test Ayırma   │
+│  Veri Toplama → Ön İşleme → Eğitim/Test Ayrımı   │
 │            ↓                                     │
-│  Model Seçimi → Eğitim → Değerlendirme → Dağıtım │
+│  Model Seçimi → Eğitim → Değerlendirme → Canlıya │
+│                                           Alım   │
 └──────────────────────────────────────────────────┘
+
 ```
 
-### Bu Reponun Aşamaları
+### Bu Deponun Aşamaları
 
-| Bölüm | Açıklama | Not Defteri |
-|-------|----------|-------------|
-| **Data Preprocessing** | Veri temizleme, dönüştürme, görselleştirme | 01–05 Numaralı notebooklar |
-| **Model Development** | Farklı algoritmaların uygulanması | 01 Regresyon, 02 Sınıflandırma, 03 Kümeleme |
-| **Model Improvement** | Performans artışı: ölçeklendirme, PCA, Auto-ML | 01–05 Numaralı notebooklar |
-
----
+| **Bölüm** | **Açıklama** | **Not Defteri** | 
+|--------|----------|--------|
+| **Data Preprocessing** | Veri temizleme, dönüştürme ve görselleştirme | 01–05 Numaralı notebook'lar | 
+| **Model Development** | Farklı algoritmaların uygulanması | 01 Regresyon, 02 Sınıflandırma, 03 Kümeleme | 
+| **Model Improvement** | Performans artırma: Ölçeklendirme, PCA, Auto-ML | 01–05 Numaralı notebook'lar | 
 
 ## 5. Bu Deponun Kapsamı ve Öğrenme Yol Haritası
 
 ### 📦 Veri Ön İşleme (Data Preprocessing)
 
-- ✅ DataFrame işlemleri — pandas temel işlemleri
-- ✅ Veri görselleştirme — Matplotlib, Seaborn
-- ✅ Keşfedici veri analizi (EDA) — Dağılımlar, korelasyonlar
-- ✅ Veri temizleme — Eksik değer, outliers
-- ✅ Özellik mühendisliği — Yeni özellik oluşturma
+* ✅ DataFrame işlemleri — pandas temel işlemleri
+
+* ✅ Veri görselleştirme — Matplotlib, Seaborn
+
+* ✅ Keşfedici Veri Analizi (EDA) — Dağılımlar, korelasyonlar
+
+* ✅ Veri temizleme — Eksik değerler, aykırı değerler (outliers)
+
+* ✅ Özellik Mühendisliği (Feature Engineering) — Yeni özellikler türetme
 
 ### 🤖 Model Geliştirme (Model Development)
 
-- ✅ **Regresyon**: Basit ve çoklu lineer regresyon
-- ✅ **Sınıflandırma**: Lojistik regresyon, karar ağaçları, Random Forest, Naive Bayes
-- ✅ **Kümeleme**: K-Means, Elbow yöntemi, Silhouette score
+* ✅ **Regresyon**: Basit ve çoklu lineer regresyon
 
-### ⚙️ Model Improvement (Model Improvement)
+* ✅ **Sınıflandırma**: Lojistik regresyon, karar ağaçları, Random Forest, Naive Bayes
 
-- ✅ **Özellik ölçeklendirme** — StandardScaler, MinMaxScaler
-- ✅ **PCA (Bilekleme)** — Boyut azaltma, explained variance
-- ✅ **Auto-EDA** — Otomatik keşif analizi
-- ✅ **Auto-ML (PyCaret)** — Otomatik model seçme ve kıyaslama
-- ✅ **Data Imputation** — Eksik değer doldurma teknikleri
+* ✅ **Kümeleme**: K-Means, Elbow yöntemi, Silhouette skoru
 
----
+### ⚙️ Model İyileştirme (Model Improvement)
+
+* ✅ **Özellik Ölçeklendirme** — StandardScaler, MinMaxScaler
+
+* ✅ **PCA (Temel Bileşenler Analizi)** — Boyut indirgeme, açıklanan varyans
+
+* ✅ **Auto-EDA** — Otomatik keşfedici veri analizi
+
+* ✅ **Auto-ML (PyCaret)** — Otomatik model seçimi ve karşılaştırması
+
+* ✅ **Eksik Veri Doldurma (Data Imputation)** — Eksik değerleri tamamlama teknikleri
 
 ## 6. Temel Kavramlar
 
@@ -170,103 +173,110 @@ Her ML projesi için standart bir akış vardır:
          │ Model öğrenir          │ Model test edilir
          ▼                        ▼
     Tahmin Motoru         Değerlendirme
+
 ```
 
 ### B. Overfitting ve Underfitting
 
-| Durum | Tanım | Gösterisi |
-|-------|-------|-----------|
-| **Overfitting** | Model veriyi "ezberler"; test verisinde başarısız olur | Training accuracy çok yüksek, test accuracy düşük |
-| **Underfitting** | Model veriyi yeterince öğrenemez; hem train hem test başarısız olur | Düşük accuracy her iki aşamada da |
+| **Durum** | **Tanım** | **Belirtileri / Göstergeleri** | 
+|--------|----------|--------|
+| **Overfitting (Aşırı Öğrenme)** | Model veriyi "ezberler"; test verisinde başarısız olur | Eğitim başarımı çok yüksek, test başarımı düşük | 
+| **Underfitting (Yetersiz Öğrenme)** | Model veriyi yeterince öğrenemez; hem eğitim hem test verisinde başarısız olur | Hem eğitim hem test aşamasında düşük başarım | 
 
-> **Önlem:** Cross-validation, hyperparameter tuning, early stopping
+> [!IMPORTANT]
+>  **Önlem:** Çapraz doğrulama (Cross-validation), hiperparametre optimizasyonu, erken durdurma (early stopping)
 
-### C. Öznitelik Mühendisliği (Feature Engineering)
+### C. Özellik Mühendisliği (Feature Engineering)
 
-> **"En iyi model, en iyi özelliğe sahip olmaktan daha iyi olabilir."**
+> [!TIP]
+> **"İyi tasarlanmış özelliklere sahip basit bir model, yetersiz özelliklere sahip karmaşık bir modelden daha başarılı olabilir."**
 
-- Eksik değerlerin doldurulması (imputation)
-- Kategorik verinin sayısallaştırılması (one-hot encoding, label encoding)
-- Polinom özellikler oluşturma
-- Bölge/zaman özelliklerinin çıkarılması
+* Eksik değerlerin doldurulması (imputation)
+
+* Kategorik verilerin sayısallaştırılması (one-hot encoding, label encoding)
+
+* Polinom özellikler oluşturma
+
+* Tarih/zaman ve konum bilgilerinden yeni özellikler çıkarma
 
 ### D. Model Performans Ölçütleri
 
-| Problem Türü | Önerilen Metrik |
-|-------------|-----------------|
-| **Regresyon** | MSE (Mean Squared Error), RMSE, R² (R-kare) |
-| **Sınıflandırma (dengeli)** | Accuracy |
-| **Sınıflandırma (dengisiz)** | Precision, Recall, F1-Score, ROC-AUC |
-| **Kümeleme** | Silhouette Score, Elbow yöntemi |
+| **Problem Türü** | **Önerilen Metrik** | 
+|--------|----------|
+| **Regresyon** | MSE (Ortalama Kare Hata), RMSE, R² (R-Kare) | 
+| **Sınıflandırma (Dengeli)** | Doğruluk (Accuracy) | 
+| **Sınıflandırma (Dengesiz)** | Kesinlik (Precision), Duyarlılık (Recall), F1-Score, ROC-AUC | 
+| **Kümeleme** | Silhouette Skoru, Elbow Yöntemi | 
 
-> **Repo'daki:** `classification.ipynb` ve `clustering.ipynb` notlarındaki tablolar bu metriği canlı gösterir.
 
----
+### 6.5 Teorik ve Uygulama Bağlamı
 
-### 6.5 Teori ve Uygulama Bağlamı
+**Teorik ML Çerçevesi ve Pratik Uygulama**
 
-**Teorel ML Çerçevesi ve Pratik Uygulama**
-
-Bu repo, klasik makine öğrenmesi (classical ML) yol haritasına odaklı bir not defteri koleksiyonudur. Çalışmalar çoğunlukla **denetimli** (supervised) ve **denetimsiz** (unsupervised) öğrenme yöntemlerini kapsar. Derin öğrenme (deep learning) ve generatif AI konuları ileri seviye çalışmalara ayrılmıştır.
+Bu depo, klasik makine öğrenmesi (classical ML) yol haritasına odaklanan bir not defteri koleksiyonudur. Çalışmalar çoğunlukla **denetimli** (supervised) ve **denetimsiz** (unsupervised) öğrenme yöntemlerini kapsar. Derin öğrenme (deep learning) ve üretken yapay zeka konuları daha ileri seviye çalışmalara ayrılmıştır.
 
 **Temel ML İlkeleri:**
 
-1. **Veri Kalitesi (Data Quality)**  
-   Her model *"garbage in, garbage out"* prinsibine tabidir. Eksik veri doldurma (imputation), aykırı değer tespiti ve özellik ölçeklendirme, model performansının büyük kısmını belirler.
+1. **Veri Kalitesi (Data Quality)**
 
-2. **Eğitim/Test Ayrımı (Train-Test Split)**  
-   Veri seti genellikle %80 eğitim / %20 test olarak ayrılır. Cross-validation (çapraz doğrulama), tekrarlanabilir ve güvenilir sonuçlar sağlar.
+   Her model *"garbage in, garbage out"* (çöp girerse çöp çıkar) prensibine tabidir. Eksik veri doldurma (imputation), aykırı değer tespiti ve özellik ölçeklendirme, model performansını doğrudan belirler.
 
-3. **Overfitting Önleme**  
-   Overfitting, modelin veriyi "ezberlemesi" durumudur. Cross-validation (k-katlı çapraz doğrulama), düzenlileştirme (regularization) ve erken durdurma (early stopping) bu riski azaltır.
+2. **Eğitim/Test Ayrımı (Train-Test Split)**
 
-4. **Özellik Mühendisliği (Feature Engineering)**  
-   *"En iyi model, en iyi özelliğe sahip olmaktan daha iyi olabilir."* İyi özellik mühendisliği, model performansını anlamlı oranda artırabilir.
+   Veri seti genellikle %80 eğitim / %20 test olarak ayrılır. Çapraz doğrulama (Cross-validation), tekrarlanabilir ve güvenilir sonuçlar elde edilmesini sağlar.
 
-5. **Model Değerlendirme ve Tekrar Edilebilirlik**  
-   `random_state=42` gibi sabitler, her çalışmada aynı sonuçların elde edilmesini sağlar. Cross-validation ile model güvenilirliği artırılır.
+3. **Overfitting'i Önleme**
 
-6. **Genel Bakış (Big Picture)**  
-   Bu not defterleri, **klasik ML** (regresyon, sınıflandırma, kümeleme, boyut indirgeme, Auto-ML) üzerine odaklanmıştır. Modern derin öğrenme ve LLM konuları kapsam dışındadır.
+   Overfitting, modelin veriyi genelleyemeyip ezberlemesi durumudur. K-katlı çapraz doğrulama (k-fold cross-validation), düzenlileştirme (regularization) ve erken durdurma (early stopping) yöntemleri bu riski azaltır.
 
----
+4. **Özellik Mühendisliği (Feature Engineering)**
 
-## 7. Python ve Kütüphaneler için Kısa Not
+   Nitelikli özellik mühendisliği, modelin karmaşıklığından bağımsız olarak başarıyı doğrudan ve anlamlı oranda artırabilir.
 
-| Kütüphane | Versiyon (Tavsiye) | Kullanım |
-|-----------|-------------------|----------|
-| **Python** | 3.9 – 3.11 | Temel çalışma dili |
-| **NumPy** | 1.24+ | Matematiksel diziler, vektör işlemleri |
-| **Pandas** | 2.2+ | Tablo verisi manipülasyonu, DataFrame |
-| **Scikit-learn** | 1.4+ | Tüm ML algoritmaları, pipeline'lar |
-| **Matplotlib** | 3.8+ | Statik görselleştirmeler |
-| **Seaborn** | 0.13+ | Estetik grafikler, heatmap'lar |
-| **Yellowbrick** | 1.3+ | Model değerlendirme görselleştirmeleri |
-| **PyCaret** | 3.0+ | Auto-ML ortamı (Auto-EDA, Auto-ML) |
+5. **Model Değerlendirme ve Tekrar Edilebilirlik**
 
----
+   `random_state=42` gibi sabitlerin tanımlanması, her çalıştırmada aynı sonuçların elde edilmesini (tekrarlanabilirliği) sağlar.
+
+6. **Genel Bakış (Big Picture)**
+
+   Bu not defterleri **klasik ML** (regresyon, sınıflandırma, kümeleme, boyut indirgeme, Auto-ML) konularına odaklanmaktadır. Derin öğrenme ve LLM gibi modern konular kapsam dışındadır.
+
+## 7. Python ve Kütüphaneler İçin Kısa Notlar
+
+| **Kütüphane** | **Versiyon (Tavsiye Edilen)** | **Kullanım Alanı** | 
+|--------|----------|--------|
+| **Python** | 3.9 – 3.11 | Temel programlama dili | 
+| **NumPy** | 1.24+ | Matematiksel diziler ve vektör işlemleri | 
+| **Pandas** | 2.2+ | Tablosal veri manipülasyonu (DataFrame) | 
+| **Scikit-learn** | 1.4+ | Makine öğrenmesi algoritmaları ve veri akışları (pipeline) | 
+| **Matplotlib** | 3.8+ | Statik veri görselleştirme | 
+| **Seaborn** | 0.13+ | İstatistiksel ve estetik grafikler | 
+| **Yellowbrick** | 1.3+ | Model değerlendirme ve görselleştirme araçları | 
+| **PyCaret** | 3.0+ | Otomatik makine öğrenmesi (Auto-ML) ortamı | 
 
 ## 8. Sonraki Adımlar ve Önerilen Öğrenme Yolculuğu
 
 ### 🚀 "Daha önce hiç kod yazmadım, nasıl başlarım?"
 
-1. **Bu notları sırasıyla oku:** Data Preprocessing → Model Development → Model Improvement
-2. **Her notebook'u canlı deneyin:** Jupyter Notebook ortamında `Shift + Enter` ile hücreleri çalıştırın
-3. **Verisetleri değiştirme:** Verilen örnek verisetleri yerine kendi verisetlerinizi deneyin
-4. **Model'leri kıyaslayın:** Farklı algoritmaların (Random Forest, Lojistik Regresyon vb.) performansını aynı veride karşılaştırın
+1. **Notları sırasıyla okuyun:** Data Preprocessing → Model Development → Model Improvement
+
+2. **Her notebook'u canlı deneyin:** Jupyter Notebook ortamında `Shift + Enter` kısayolu ile hücreleri sırayla çalıştırın.
+
+3. **Veri setlerini değiştirin:** Örnek veri setleri yerine kendi seçtiğiniz farklı veri setleriyle denemeler yapın.
+
+4. **Modelleri karşılaştırın:** Farklı algoritmaların (Random Forest, Lojistik Regresyon vb.) aynı veri üzerindeki performanslarını kıyaslayın.
 
 ### 📊 "Sonra ne öğrenmeliyim?"
 
-| Adım | Konu | Önerilen Kaynak |
-|------|------|------------------|
-| 1 | **Derin Öğrenme (Deep Learning)** | Fast.ai, PyTorch Tutorials |
-| 2 | **Model Dağıtımı** | Flask/FastAPI ile API oluşturma |
-| 3 | **Büyük Veri (Big Data)** | PySpark, Dask |
-| 4 | **ML Production** | Docker, MLflow, CI/CD pipeline'lar |
-
----
+| **Adım** | **Konu** | **Önerilen Kaynak** | 
+|--------|----------|--------|
+| 1 | **Derin Öğrenme (Deep Learning)** | Fast.ai, PyTorch Dokümantasyonu | 
+| 2 | **Model Dağıtımı (Deployment)** | Flask/FastAPI ile REST API oluşturma | 
+| 3 | **Büyük Veri (Big Data)** | PySpark, Dask | 
+| 4 | **MLOps & Üretim** | Docker, MLflow, CI/CD süreçleri | 
 
 ## 📎 Referanslar
 
-1. **Scikit-learn Documentation** — Scikit Kütüphanesi Dokümanları - [🔗](https://scikit-learn.org/stable/)
-2. **Google's ML Crash Course** — Google'ın kendi iç eğitimi - [🔗](https://developers.google.com/machine-learning/crash-course?hl=tr)
+1. **Scikit-learn Documentation** — Scikit-Learn Kütüphanesi Resmi Dokümantasyonu - [🔗](https://scikit-learn.org/stable/)
+
+2. **Google's ML Crash Course** — Google Makine Öğrenmesi Hızlı Kursu - [🔗](https://developers.google.com/machine-learning/crash-course?hl=tr)
