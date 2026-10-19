@@ -13,10 +13,10 @@ Bu depo, Python ile klasik makine öğrenmesi uygulamalarını içeren eğitimse
 
 - [DataFrame İşlemleri](Data-Preprocessing/01-DataFrame-Operations/DataFrame-Operations.ipynb)  
 (*Pandas ile veri manipulasyonu, temel işlemler*)
-- [Veri Görselleştirme](Data-Preprocessing/02-Data-Visualization/Data-Visualization.ipynb)  
-(*Matplotlib ve Seaborn ile görselleştirme örnekleri*)
-- [Keşfedici Veri Analizi (EDA)](Data-Preprocessing/03-Exploratory-Data-Analysis/Exploratory-Data-Analysis.ipynb)  
+- [Keşfedici Veri Analizi (EDA)](Data-Preprocessing/02-Exploratory-Data-Analysis/Exploratory-Data-Analysis.ipynb)  
 (*Veri dağılımları, korelasyon ve özet istatistikler*)
+- [Veri Görselleştirme](Data-Preprocessing/03-Data-Visualization/Data-Visualization.ipynb)  
+(*Matplotlib ve Seaborn ile görselleştirme örnekleri*)
 - [Veri Temizleme](Data-Preprocessing/04-Cleaning-Data/Cleaning-Data.ipynb)  
 (*Eksik veri, aykırı değer ve veri dönüşüm teknikleri*)
 - [Özellik Mühendisliği](Data-Preprocessing/05-Feature-Engineering/Feature-Engineering.ipynb)  
